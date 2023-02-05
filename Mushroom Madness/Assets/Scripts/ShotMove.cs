@@ -23,6 +23,10 @@ public class ShotMove : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         {
+            if (collision.gameObject.CompareTag("Enemy")) {
+                EnemyMover em = collision.gameObject.GetComponent<EnemyMover>();
+                em.health--;
+            }
             Destroy(gameObject);
         }
     }
